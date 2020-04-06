@@ -48,7 +48,6 @@ An implementation of my own version of Ruby’s enumerable methods.
 * [About the Project](#about-the-project)
 * [Built With](#built-with)
 * [Live Version](#live-version)
-* [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
@@ -89,7 +88,7 @@ You can see it working [here](https://repl.it/@PhillipUg/enumerable-methods)
 
 - LinkedIn: [Phillip Musiime](https://www.linkedin.com/in/phillip-musiime-74657019a/)
 - GitHub: [PhillipUg](https://github.com/PhillipUg)
-- Twitter: [@Phillip_Ug] https://twitter.com/Phillip_Ug
+- Twitter: [@Phillip_Ug](https://twitter.com/Phillip_Ug)
 - E-mail: phillipmusiime@gmail.com
 
 
