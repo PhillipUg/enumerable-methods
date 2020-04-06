@@ -40,6 +40,12 @@ module Enumerable
   end
 
   def my_any?
+    my_each do |i|
+      if yield i
+        return true
+      end
+    end
+    false
   end
 
   def my_none?
