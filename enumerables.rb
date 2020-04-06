@@ -67,7 +67,7 @@ module Enumerable
     count = 0
     if par
       my_each do |item|
-        count+=1 if item == arg
+        count+=1 if item == par
       end
     elsif block_given?
       my_each do |item|
@@ -89,4 +89,4 @@ module Enumerable
   end
 end
 
-p [5, 3, 2, 7, 6, 0, 9].my_count { |ele| ele.even? }
+p [5, 3, 2, 7, 6, 0, 9].my_count(9)
