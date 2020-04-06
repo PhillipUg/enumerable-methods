@@ -32,7 +32,15 @@ module Enumerable
   end
 
   def my_all?
-  
+    new_array = []
+    my_each do |item|
+      new_array.push(item) if yield item
+    end
+    if new_array == self
+      return true
+    else
+      return false
+    end
   end
 
   def my_any?
@@ -54,4 +62,4 @@ module Enumerable
   end
 end
 
-
+p [5, 3, 2, 7, 6, 0, 9].my_all? { |ele| ele.odd? }
