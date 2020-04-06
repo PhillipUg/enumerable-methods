@@ -32,6 +32,8 @@ module Enumerable
   end
 
   def my_all?
+    return to_enum unless block_given?
+
     selected = my_select {|item| yield item}
     if self == selected
       return true
@@ -40,6 +42,8 @@ module Enumerable
   end
 
   def my_any?
+    return to_enum unless block_given?
+
     my_each do |i|
       if yield i
         return true
@@ -49,6 +53,8 @@ module Enumerable
   end
 
   def my_none?
+    return to_enum unless block_given?
+
     my_each do |i|
       if yield i
         return false
@@ -57,7 +63,20 @@ module Enumerable
     true
   end
 
-  def my_count
+  def my_count(par = nil)
+    count = 0
+    if par
+      my_each do |item|
+        count+=1 if item == arg
+      end
+    elsif block_given?
+      my_each do |item|
+        count+=1 if yield item
+      end
+     else
+      count = size
+    end
+    count
   end
 
   def my_map
@@ -70,4 +89,4 @@ module Enumerable
   end
 end
 
-p [5, 3, 2, 7, 6, 0, 9].my_all? { |ele| ele.odd? }
+p [5, 3, 2, 7, 6, 0, 9].my_count { |ele| ele.even? }
