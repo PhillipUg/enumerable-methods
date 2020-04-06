@@ -1,9 +1,6 @@
 # enumerable-methods
 An implementation of my own version of Ruby’s enumerable methods.
 
-# bubble-sort
-The goal here is implementing the bubble sort algorithm
-
 <!--
 *** Thanks for checking out this README Template. If you have a suggestion that would
 *** make this better, please fork the repo and create a pull request or simply open
@@ -27,21 +24,21 @@ The goal here is implementing the bubble sort algorithm
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/PhillipUg/bubble-sort">
+  <a href="https://github.com/PhillipUg/enumerable-methods">
     <img src="images/microverse.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Bubble Sort</h3>
+  <h3 align="center">Enumerable Methods</h3>
 
   <p align="center">
-    This project is part of the Microverse curriculum in Ruby module!
+    This project is part of Microverse's curriculum in the Ruby module!
     <br />
-    <a href="https://github.com/PhillipUg/bubble-sort"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/PhillipUg/enumerable-methods"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://repl.it/@PhillipUg/bubble-sort">View Demo</a>
-    <a href="https://github.com/PhillipUg/bubble-sort/issues">Report Bug</a>
-    <a href="https://github.com/PhillipUg/bubble-sort/issues">Request Feature</a>
+    <a href="https://repl.it/@PhillipUg/enumerable-methods">View Demo</a>
+    <a href="https://github.com/PhillipUg/enumerable-methods/issues">Report Bug</a>
+    <a href="https://github.com/PhillipUg/enumerable-methods/issues">Request Feature</a>
   </p>
 </p>
 
@@ -58,25 +55,18 @@ The goal here is implementing the bubble sort algorithm
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://repl.it/@PhillipUg/bubble-sort)
+[![Product Name Screen Shot][product-screenshot]](https://repl.it/@PhillipUg/enumerable-methods)
 
-This is the first project of the Microverse Ruby Module
+This is the second project of the Microverse Ruby Module
 
-This is also the Assignment_1 of the [Odin project curriculum](https://www.theodinproject.com/courses/ruby-programming/lessons/advanced-building-blocks)
 
 <!-- ABOUT THE PROJECT -->
 ## Installation
 
-To test the code you need to write this at the end and execute it with [ruby](https://repl.it) : 
+To test the code you need to give it some test cases like the ones written below and execute them on [repl.it](https://repl.it) : 
 
 ```
-bubble = bubble_sort_by(%w[hi hello hey]) do |left, right|
-  left.length - right.length
-end
 
-p bubble_sort([1, 3, 42, 54, 21, 221, 31, 2, 0])
-puts
-p bubble
 
 ```
 
@@ -89,7 +79,7 @@ This project was built using these technologies.
 <!-- LIVE VERSION -->
 ## Live version
 
-You can see it working [here](https://repl.it/@PhillipUg/bubble-sort)
+You can see it working [here](https://repl.it/@PhillipUg/enumerable-methods)
 
 <!-- CONTACT -->
 ## Contributors
@@ -111,15 +101,15 @@ You can see it working [here](https://repl.it/@PhillipUg/bubble-sort)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/PhillipUg/bubble-sort.svg?style=flat-square
-[contributors-url]: https://github.com/PhillipUg/bubble-sort/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/PhillipUg/bubble-sort.svg?style=flat-square
-[forks-url]: https://github.com/PhillipUg/bubble-sort/network/members
-[stars-shield]: https://img.shields.io/github/stars/PhillipUg/bubble-sort.svg?style=flat-square
-[stars-url]: https://github.com/PhillipUg/bubble-sort/stargazers
-[issues-shield]: https://img.shields.io/github/issues/PhillipUg/bubble-sort.svg?style=flat-square
-[issues-url]: https://github.com/PhillipUg/bubble-sort/issues
-[product-screenshot]: images/bubble-sort.jpg
+[contributors-shield]: https://img.shields.io/github/contributors/PhillipUg/enumerable-methods.svg?style=flat-square
+[contributors-url]: https://github.com/PhillipUg/enumerable-methods/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/PhillipUg/enumerable-methods.svg?style=flat-square
+[forks-url]: https://github.com/PhillipUg/enumerable-methods/network/members
+[stars-shield]: https://img.shields.io/github/stars/PhillipUg/enumerable-methods.svg?style=flat-square
+[stars-url]: https://github.com/PhillipUg/enumerable-methods/stargazers
+[issues-shield]: https://img.shields.io/github/issues/PhillipUg/enumerable-methods.svg?style=flat-square
+[issues-url]: https://github.com/PhillipUg/enumerable-methods/issues
+[product-screenshot]: images/enumerable-methods.jpg
 
 ## 📝 License
 
