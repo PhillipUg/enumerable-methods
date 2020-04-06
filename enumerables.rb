@@ -32,15 +32,11 @@ module Enumerable
   end
 
   def my_all?
-    new_array = []
-    my_each do |item|
-      new_array.push(item) if yield item
-    end
-    if new_array == self
+    selected = my_select {|item| yield item}
+    if self == selected
       return true
-    else
-      return false
     end
+    false
   end
 
   def my_any?
