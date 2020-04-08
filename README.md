@@ -65,7 +65,14 @@ This is the second project of the Microverse Ruby Module
 To test the code you need to give it some test cases like the ones written below and execute them on [repl.it](https://repl.it) : 
 
 ```
-
+  p [1, 2, 3].my_each { |elem| print "#{elem + 1} " } # => 2 3 4
+  p [1, 2, 3, 8].my_select(&:even?) # => [2, 8]
+  p %w[dog door rod blade].my_all?(/d/) # => true
+  p [1, nil, false].my_any?(Integer) # => true
+  p [3, 5, 7, 11].my_none?(&:even?) # => true
+  p %w[DANIEL JIA KRITI dave].my_count { |s| s == s.upcase } # => 3
+  p [1, 2, 3].my_map { |n| 2 * n } # => [2,4,6]
+  p (5..10).my_inject(4) { |prod, n| prod * n } # should return 604800
 
 ```
 
