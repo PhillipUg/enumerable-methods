@@ -32,26 +32,26 @@ module Enumerable
   end
 
   def my_all?(par = nil, &prc)
-    !block_given? && arg.nil? && include?(nil) == false && include?(false) == false ? true : false
-    return false unless block_given? || !arg.nil?
+    !block_given? && par.nil? && include?(nil) == false && include?(false) == false ? true : false
+    return false unless block_given? || !par.nil?
 
     my_each do |elem|
       return false if block_given? && prc.call(elem) == false        
-      return false if (arg.class == Integer) && (elem != arg)
-      return false if (arg.class == Regexp) && (arg.match(elem).nil?)        
+      return false if (par.class == Integer) && (elem != par)
+      return false if (par.class == Regexp) && (par.match(elem).nil?)        
       return false if (elem === false) || (elem === nil)      
     end
     true
   end
 
- def my_any?(arg = nil, &prc)
-     !block_given? && arg.nil? && include?(nil) == false && include?(false) == false ? true : false
-    return false unless block_given? || !arg.nil?
+ def my_any?(par = nil, &prc)
+     !block_given? && par.nil? && include?(nil) == false && include?(false) == false ? true : false
+    return false unless block_given? || !par.nil?
 
     my_each do |elem|
       return true if block_given? && prc.call(elem) == true        
-      return true if (arg.class == Integer) && (elem == arg)
-      return true if (arg.class == Regexp) && (arg.match(elem))      
+      return true if (par.class == Integer) && (elem == par)
+      return true if (par.class == Regexp) && (par.match(elem))      
       return true if (elem === false) || (elem === nil)      
     end
     false
