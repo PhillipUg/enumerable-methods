@@ -1,10 +1,12 @@
+# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+
 module Enumerable
   def my_each
     return to_enum unless block_given?
 
     i = 0
     while i < size
-      yield self[i]
+      is_a?(Range) ? yield(min + i) : yield(self[i])
       i += 1
     end
   end
@@ -24,9 +26,7 @@ module Enumerable
 
     selected = []
     my_each do |item|
-      if yield(item)
-        selected.push(item)
-      end
+      selected.push(item) if yield(item)
     end
     selected
   end
@@ -36,10 +36,10 @@ module Enumerable
     return true unless block_given? || !par.nil?
 
     my_each do |elem|
-      return false if block_given? && prc.call(elem) == false        
+      return false if block_given? && prc.call(elem) == false
       return false if (par.class == Integer) && (elem != par)
-      return false if (par.class == Regexp) && (par.match(elem).nil?)        
-      return false if (elem === false) || (elem === nil)      
+      return false if (par.class == Regexp) && par.match(elem).nil?
+      return false if (elem == false) || elem.nil?
     end
     true
   end
@@ -49,14 +49,14 @@ module Enumerable
     return true unless block_given? || !par.nil?
 
     my_each do |elem|
-      return true if block_given? && prc.call(elem) == true        
+      return true if block_given? && prc.call(elem) == true
       return true if (par.class == Integer) && (elem == par)
-      return true if (par.class == Regexp) && (par.match(elem))      
-      return true if (elem === false) || (elem === nil)      
+      return true if (par.class == Regexp) && par.match(elem)
+      return true if (elem == false) || elem.nil?
     end
     false
   end
-  
+
   def my_none?(par = nil, &prc)
     !my_any?(par, &prc)
   end
@@ -65,11 +65,11 @@ module Enumerable
     count = 0
     if par
       my_each do |item|
-        count+=1 if item == par
+        count += 1 if item == par
       end
     elsif block_given?
       my_each do |item|
-        count+=1 if yield item
+        count += 1 if yield item
       end
     else
       count = size
@@ -81,7 +81,7 @@ module Enumerable
     return to_enum unless block_given?
 
     new_array = []
-    my_each { |elem| new_array.push(prc.call(elem)) } if block_given? && prc      
+    my_each { |elem| new_array.push(prc.call(elem)) } if block_given? && prc
     my_each { |elem| new_array.push(yield(elem)) } if prc.nil?
     new_array
   end
@@ -107,4 +107,4 @@ def multiply_els(arr)
   array.my_inject { |mult, elem| mult * elem }
 end
 
-
+# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
