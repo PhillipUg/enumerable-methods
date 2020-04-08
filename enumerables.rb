@@ -32,16 +32,14 @@ module Enumerable
   end
 
   def my_all?(par = nil, &prc)
-    if !block_given?
-      return true
-    elsif par == Integer && self.class == Integer
-      return true
-    end
+    !block_given? && arg.nil? && include?(nil) == false && include?(false) == false ? true : false
+    return false unless block_given? || !arg.nil?
 
-    my_each do |item|
-      if prc.call(item) == false
-        return false
-      end
+    my_each do |elem|
+      return false if block_given? && prc.call(elem) == false        
+      return false if (arg.class == Integer) && (elem != arg)
+      return false if (arg.class == Regexp) && (arg.match(elem).nil?)        
+      return false if (elem === false) || (elem === nil)      
     end
     true
   end
