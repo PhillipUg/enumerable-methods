@@ -2,21 +2,21 @@ module Enumerable
   def my_each
     return to_enum unless block_given?
 
-    for item in self
-      yield item
+    i = 0
+    while i < size
+      yield self[i]
+      i += 1
     end
-    self
   end
 
   def my_each_with_index
     return to_enum unless block_given?
 
     index = 0
-    for item in self
-      yield item, index
+    while index < size
+      yield self[index], index
       index += 1
     end
-    self
   end
 
   def my_select
@@ -31,14 +31,19 @@ module Enumerable
     selected
   end
 
-  def my_all?
-    return to_enum unless block_given?
-
-    selected = my_select {|item| yield item}
-    if self == selected
+  def my_all?(par = nil, &prc)
+    if !block_given?
+      return true
+    elsif par == Integer && self.class == Integer
       return true
     end
-    false
+
+    my_each do |item|
+      if prc.call(item) == false
+        return false
+      end
+    end
+    true
   end
 
   def my_any?
@@ -73,20 +78,18 @@ module Enumerable
       my_each do |item|
         count+=1 if yield item
       end
-     else
+    else
       count = size
     end
     count
   end
 
   def my_map
+    
   end
 
   def my_inject
   end
 
-  def multiply_els
-  end
 end
 
-p [5, 3, 2, 7, 6, 0, 9].my_count(9)
