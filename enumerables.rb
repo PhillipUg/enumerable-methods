@@ -44,13 +44,15 @@ module Enumerable
     true
   end
 
-  def my_any?
-    return to_enum unless block_given?
+ def my_any?(arg = nil, &prc)
+     !block_given? && arg.nil? && include?(nil) == false && include?(false) == false ? true : false
+    return false unless block_given? || !arg.nil?
 
-    my_each do |i|
-      if yield i
-        return true
-      end
+    my_each do |elem|
+      return true if block_given? && prc.call(elem) == true        
+      return true if (arg.class == Integer) && (elem == arg)
+      return true if (arg.class == Regexp) && (arg.match(elem))      
+      return true if (elem === false) || (elem === nil)      
     end
     false
   end
