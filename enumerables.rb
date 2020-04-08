@@ -32,8 +32,8 @@ module Enumerable
   end
 
   def my_all?(par = nil, &prc)
-    !block_given? && par.nil? && include?(nil) == false && include?(false) == false ? true : false
-    return false unless block_given? || !par.nil?
+    !block_given? && par.nil? ? true : false
+    return true unless block_given? || !par.nil?
 
     my_each do |elem|
       return false if block_given? && prc.call(elem) == false        
@@ -44,9 +44,9 @@ module Enumerable
     true
   end
 
- def my_any?(par = nil, &prc)
-     !block_given? && par.nil? && include?(nil) == false && include?(false) == false ? true : false
-    return false unless block_given? || !par.nil?
+  def my_any?(par = nil, &prc)
+    !block_given? && par.nil? ? true : false
+    return true unless block_given? || !par.nil?
 
     my_each do |elem|
       return true if block_given? && prc.call(elem) == true        
@@ -56,18 +56,11 @@ module Enumerable
     end
     false
   end
-
-  def my_none?
-    return to_enum unless block_given?
-
-    my_each do |i|
-      if yield i
-        return false
-      end
-    end
-    true
+  
+  def my_none?(par = nil, &prc)
+    !my_any?(par, &prc)
   end
-
+  
   def my_count(par = nil)
     count = 0
     if par
