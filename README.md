@@ -1,5 +1,5 @@
-# enumerable-methods
-An implementation of my own version of Ruby’s enumerable methods.
+# Enumerable Methods
+An implementation of my own version of Ruby’s enumerable methods. Adding new methods onto the existing Enumerable module.
 
 <!--
 *** Thanks for checking out this README Template. If you have a suggestion that would
