@@ -53,8 +53,8 @@ module Enumerable
     false
   end
 
-  def my_none?(par = nil)
-    !my_any?(par)
+  def my_none?(par = nil, &prc)
+    !my_any?(par, &prc)
   end
 
   def my_count(par = nil)
