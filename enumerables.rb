@@ -1,4 +1,4 @@
-# rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+# rubocop:disable Style/CaseEquality, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
 module Enumerable
   def my_each
@@ -31,34 +31,30 @@ module Enumerable
     selected
   end
 
-  def my_all?(par = nil, &prc)
-    !block_given? && par.nil? ? true : false
-    return true unless block_given? || !par.nil?
-
-    my_each do |elem|
-      return false if block_given? && prc.call(elem) == false
-      return false if (par.class == Integer) && (elem != par)
-      return false if (par.class == Regexp) && par.match(elem).nil?
-      return false if (elem == false) || elem.nil?
+  def my_all?(par = nil)
+    if par
+      my_each { |elem| return false unless par === elem }
+    elsif !block_given?
+      my_each { |elem| return false unless elem }
+    else
+      my_each { |elem| return false unless yield(elem) }
     end
     true
   end
 
-  def my_any?(par = nil, &prc)
-    !block_given? && par.nil? ? true : false
-    return true unless block_given? || !par.nil?
-
-    my_each do |elem|
-      return true if block_given? && prc.call(elem) == true
-      return true if (par.class == Integer) && (elem == par)
-      return true if (par.class == Regexp) && par.match(elem)
-      return true if (elem == false) || elem.nil?
+  def my_any?(par = nil)
+    if par
+      my_each { |elem| return true if par === elem }
+    elsif !block_given?
+      my_each { |elem| return true if elem }
+    else
+      my_each { |elem| return true if yield(elem) }
     end
     false
   end
 
-  def my_none?(par = nil, &prc)
-    !my_any?(par, &prc)
+  def my_none?(par = nil)
+    !my_any?(par)
   end
 
   def my_count(par = nil)
@@ -107,4 +103,4 @@ def multiply_els(arr)
   array.my_inject { |mult, elem| mult * elem }
 end
 
-# rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+# rubocop:enable Style/CaseEquality, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
