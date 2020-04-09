@@ -56,11 +56,20 @@ An implementation of my own version of Ruby’s enumerable methods.
 
 [![Product Name Screen Shot][product-screenshot]](https://repl.it/@PhillipUg/enumerable-methods)
 
-This is the second project of the Microverse Ruby Module
+This is the second project of the Microverse Ruby Module. In this project, i implement some of the enumerable methods in the **Enumerable Module**. I didnt use any enumerable methods while doing so. Some of the methods i implemented include:
+- #my_each
+- #my_each_with_index
+- #my_select 
+- #my_all? 
+- #my_any?
+- #my_none?
+- #my_count
+- #my_map
+- #my_inject
 
 
 <!-- ABOUT THE PROJECT -->
-## Installation
+## Testing
 
 To test the code you need to give it some test cases like the ones written below and execute them on [repl.it](https://repl.it) : 
 
