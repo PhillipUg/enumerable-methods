@@ -107,7 +107,7 @@ RSpec.describe Enumerable do
         expect(array3.my_any?).to be true
       end
 
-      context 'if none of the elements is not (false) or (nil)' do
+      context 'if none of the elements is (false) or (nil)' do
         it 'should return false' do
           expect(array4.my_any?).to be false
         end
@@ -141,7 +141,7 @@ RSpec.describe Enumerable do
         expect(array4.my_none?).to be true
       end
 
-      context 'if  atleast one of elements is not (false) or (nil)' do
+      context 'if atleast one of elements is not (false) or (nil)' do
         it 'should return false' do
           expect(array3.my_none?).to be false
         end
